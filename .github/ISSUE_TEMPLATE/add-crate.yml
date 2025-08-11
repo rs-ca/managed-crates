@@ -2,7 +2,6 @@ name: "📦 Request to Add Crate"
 description: Suggest an abandoned or archived Rust crate for RS-CA to manage.
 title: "[Crate]: "
 labels: ["new-crate-wanted"]
-assignees: []
 
 body:
   - type: input
