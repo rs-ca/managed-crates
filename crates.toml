@@ -1,10 +1,28 @@
-# toml file to manage current managed crates or crates that have been decided to be managed
-# current format is
-# crates.[crate name] = string(current stage of crate) or object { stage = string(current stage of crate), new_name = string(if unable to get rights to orginal name this is the new name the fork is under) }
-# stages are contact(try to get into contact with orginal author) | hardfork (a hard fork has been made) | transfer (a full transfer of orginal repo has orcured)
-# more options will be added over time as needed
-
+# managed-crates.toml
+#
+# Tracks crates that RS-CA currently manages or has decided to manage.
+#
+# FORMAT
+# [crates]
+# <crate-name> = "<stage>"
+# <crate-name> = { stage = "<stage>", new_name = "<fork-name-if-renamed>" }
+#
+# STAGES
+# - "contact"  : Trying to contact the original author/owner to arrange transfer.
+# - "hardfork" : A hard fork has been created under RS-CA.
+# - "transfer" : Ownership/maintenance has been transferred to RS-CA.
+#
+# Notes:
+# - Use the simple string form when you only need the stage.
+# - Use the object form if the fork must live under a different name (new_name).
+# - More stages may be added over time.
 
 [crates]
 serde_yaml = "contact"
 paste = "contact"
+
+# Example using the object form (fork renamed):
+# old_unmaintained = { stage = "hardfork", new_name = "old-unmaintained-rs" }
+
+# Example already transferred:
+# regex = "transfer"
