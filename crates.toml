@@ -1,0 +1,9 @@
+# toml file to manage current managed crates or crates that have been decided to be managed
+# current format is
+# crates.[crate name] = string(current stage of crate) or object { stage = string(current stage of crate), new_name = string(if unable to get rights to orginal name this is the new name the fork is under) }
+# stages are contact(try to get into contact with orginal author) | hardfork (a hard fork has been made) | transfer (a full transfer of orginal repo has orcured)
+# more options will be added over time as needed
+
+
+[crates]
+serde_yaml = "contact"
