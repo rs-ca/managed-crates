@@ -1,0 +1,71 @@
+name: "📦 Request to Add Crate"
+description: Suggest an abandoned or archived Rust crate for RS-CA to manage.
+title: "[Crate]: "
+labels: ["new-crate-wanted"]
+assignees: []
+
+body:
+  - type: input
+    id: crate_name
+    attributes:
+      label: Crate Name
+      description: Exact name as published on crates.io.
+      placeholder: crate_name_here
+    validations:
+      required: true
+
+  - type: input
+    id: crates_io_link
+    attributes:
+      label: crates.io Link
+      description: Direct link to the crate page on crates.io.
+      placeholder: https://crates.io/crates/<crate-name>
+    validations:
+      required: true
+
+  - type: textarea
+    id: original_repository
+    attributes:
+      label: Original Repository & Related Works
+      description: >
+        URL to the original GitHub/GitLab/etc. repository.  
+        Also list any maintained forks, related repositories, or alternative versions of this crate.  
+        These can belong to you or to others in the community.
+      placeholder: |
+        https://github.com/username/repo  
+        https://github.com/someone/forked-repo
+      render: markdown
+    validations:
+      required: true
+
+  - type: dropdown
+    id: reason_for_adoption
+    attributes:
+      label: Reason for Adoption
+      description: Select one or more reasons for adoption.
+      multiple: true
+      options:
+        - Abandoned
+        - Archived
+        - Security issues
+        - Dependency updates needed
+        - Other (explain in notes)
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional_notes
+    attributes:
+      label: Additional Notes
+      description: Any extra details about the crate, community usage, or history.
+      placeholder: |
+        This crate is used by several popular projects...  
+        It currently fails to build on Rust 1.75.
+      render: markdown
+    validations:
+      required: false
+
+  - type: markdown
+    attributes:
+      value: |
+        💡 **Tip:** If you want this crate to be prioritized, give a 👍 upvote to the issue after submitting.
