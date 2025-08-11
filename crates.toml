@@ -7,3 +7,4 @@
 
 [crates]
 serde_yaml = "contact"
+paste = "contact"
